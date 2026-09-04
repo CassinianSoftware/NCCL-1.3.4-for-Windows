@@ -1,28 +1,25 @@
 <H2>Installation Instructions</H2>
-To build and use <b>NCCL 1.3.4</b> you will need to do the following steps.  As a side note, we are using (and recommend) CUDA 11.8 and Visual Studio 2022 on Windows 10 Pro for all of our testing.
-</br>
-<H4>A. Install NVIDIA CUDA Libraries</H4>
-1.) Install the NVIDIA CUDA 11.8 Toolkit for Windows 10 from https://developer.nvidia.com/cuda-downloads. 
-</br>
-<H4>B. Building NCCL 1.3.4</H4>
+To build and use <b>NCCL 1.3.4</b> on Windows, you will need to perform the following steps. As a side note, we are using CUDA 13.4 and Visual Studio 2019 on Windows 11 Pro for all of our testing (other CUDA versions, such as 12.x and 13.x should also work).
+
+<H3>1. Install the NVIDIA CUDA Libraries</H3>
+Install the NVIDIA CUDA 13.4 Toolkit for Windows from https://developer.nvidia.com/cuda-downloads. 
+
+<H3>2. Building NCCL 1.3.4</H3>
 
 ** IMPORTANT **
 All NCCL builds are 64-bit builds and are only usable by 64-bit applications.
 
-The NCCL solution is configured to build several different versions of NCCL each for a specific version of CUDA. Currently the 'windows/nccl.sln' solution
-targets the following NCCL builds:
+The NCCL solution is configured to build the Debug and Release versions of NCCL using the specified version of CUDA. The "windows/nccl_v134-c134.sln" solution targets the following NCCL build:
 
-* nccl.11.7.vcxproj - targets CUDA 11.7 (requires CUDA 11.7 to be installed)
-* nccl.11.8.vcxproj - targets CUDA 11.8 (requires CUDA 11.8 to be installed)
+* nccl_v134-c134.vcxproj - targets CUDA 13.4 (requires CUDA 13.4 to be installed)
+* Note: Visual Studio 2026 version is pending.
 
-If you only want to target a single version of CUDA (such as CUDA 11.8), just build the corresponding *.vcxproj noted above.
+If you wish to target a different version of CUDA, other than 13.4, you will need to update the Build Customization Files settings in Visual Studio (under Project/Build Customizations...).
 
-The resulting DLLs from the build are placed into either the NCCL\windows\x64\Debug or NCCL\windows\x64\Release directory depending
-on your build type.  Each resulting DLL file name is appended with the CUDA version that it targets.  So for example
-the CUDA 11.8 version is named 'nccl64_134.11.8.dll' for the release version.
+The resulting DLLs from the build are placed into either the "NCCL\windows\x64\Release\libs" or "NCCL\windows\x64\Debug\libs" folder, depending
+on your build type. Each resulting DLL file name is appended with the CUDA version that it targets; for example the CUDA 13.4 version is named "nccl-x64_v134-c134.dll" (for the Release version).
 
-The resulting EXE's for testing are placed into either the NCCL\windows\x64\Debug or NCCL\windows\x64\Release directory
-depending on your build type. The following test executables are built:
+The resulting EXE's for testing are placed into either the "NCCL\windows\x64\Release\bin" or "NCCL\windows\x64\Debug\bin" folder, depending on your build type. The following test executables are built:
 
 * all_reduce_scan.exe
 * all reduce_test.exe
@@ -33,29 +30,19 @@ depending on your build type. The following test executables are built:
 * reduce_scatter_test.exe
 * reduce_test.exe
 
-Note, the build also copies the required 'cudart64_xxx.dll' into the same directory where the 'xxx' corresponds to the
-version of CUDA targeted.
+Note, the build also copies the required "cudart64_xxx.dll" into the same directory where the 'xxx' corresponds to the version of CUDA targeted. So for example, when targeting CUDA 13.4, the "cudart64_13.dll" is copied into the directory.
 
-So for example, when targeting CUDA 11, the 'cudart64_110.dll' is copied into the directory.
+<H4>Usage:</H4>
 
-<H4>Usage</H4>
+The <b>nccl.h</b> file located "NCCL\src" defines the main entry points into the "nccl-x64_v134-cxxx.dll" library, several of which are described as follows:
 
-The 'nccl.h' file located at 'https://github.com/MyCaffe/NCCL/blob/master/src/nccl.h' defines the
-main entrypoints into the 'nccl_134_xxx.dll'' several of which are described as follows:
+* ncclCommInitRank - Creates a new communicator (multi process version).
+* ncclCommInitAll - Creates a clique of communicators.
+* ncclCommDestroy - Frees resources associated with communicator object.
+* ncclAllReduce - Reduces data arrays of length count in sendbuff using op operation, and leaves identical copies of result on each GPUs recvbuff.
+* ncclBcast - Copies count values from root to all other devices.
+* ncclGetErrorString - Returns nice error message.
 
-ncclCommInitRank - Creates a new communicator (multi process version).
-ncclCommInitAll - Creates a clique of communicators.
-ncclCommDestroy - Frees resources associated with communicator object.
-ncclAllReduce - Reduces data arrays of length count in sendbuff using op operation, and leaves identical copies of result on each GPUs recvbuff.
-ncclBcast - Copies count values from root to all other devices.
-ncclGetErrorString - Returns nice error message.
-
-For more function and parameter descriptions and format, callable by the C language, please see 'nccl.h'.
-
-Use the LoadLibrary and GetProcAddress Win32 functions to access each of the 'nccl' functions.  For an example on how to do this, please
-see the Initialize method at line 57 of https://github.com/MyCaffe/MyCaffe/blob/master/CudaDnnDLL/Cuda%20Files/nccl.cu.
+For more function and parameter descriptions and format, callable by the C language, please see <b>nccl.h</b>.
 
 For more information on programming DLL's in Windows, see https://docs.microsoft.com/en-us/windows/win32/dlls/run-time-dynamic-linking.
-
-
-
