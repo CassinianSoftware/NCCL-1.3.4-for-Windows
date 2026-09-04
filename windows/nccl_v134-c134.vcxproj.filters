@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="..\test\single\all_gather_scan.cu">
+      <Filter>Tests</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\test\single\all_gather_test.cu">
+      <Filter>Tests</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\test\single\all_reduce_scan.cu">
+      <Filter>Tests</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\test\single\all_reduce_test.cu">
+      <Filter>Tests</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\test\single\broadcast_scan.cu">
+      <Filter>Tests</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\test\single\broadcast_test.cu">
+      <Filter>Tests</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\test\single\reduce_scan.cu">
+      <Filter>Tests</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\test\single\reduce_scatter_scan.cu">
+      <Filter>Tests</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\test\single\reduce_scatter_test.cu">
+      <Filter>Tests</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\test\single\reduce_test.cu">
+      <Filter>Tests</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\test\mpi\mpi_test.cu">
+      <Filter>Tests</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\all_gather.cu">
+      <Filter>Source</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\all_reduce.cu">
+      <Filter>Source</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\broadcast.cu">
+      <Filter>Source</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\core.cu">
+      <Filter>Source</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\libwrap.cu">
+      <Filter>Source</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\reduce.cu">
+      <Filter>Source</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\reduce_scatter.cu">
+      <Filter>Source</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="..\test\include\test_utilities.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\common_coll.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\common_kernel.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\copy_kernel.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\enqueue.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\libwrap.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\nccl.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\primitives.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\reduce_kernel.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="nccl_v134-c134.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{a861135d-4c65-48f2-900c-377204979c0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{7e569a9a-e5d6-4d67-8599-1f50044ad59d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{afc07698-b4ff-4ebb-b8cb-eb2ba7f4a705}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

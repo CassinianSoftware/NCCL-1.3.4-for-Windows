@@ -32,9 +32,12 @@
 #include <string>
 #include <float.h>
 
+#include "nvtx3/nvToolsExt.h"
+
 #include "nccl.h"
 #include "test_utilities.h"
-//#include <nvToolsExt.h>
+ //#include <nvToolsExt.h>
+#include "nvtx3/nvToolsExt.h"
 
 void showUsage(const char* bin) {
   printf("\n"
