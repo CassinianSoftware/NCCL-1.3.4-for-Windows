@@ -1,5 +1,5 @@
 # NCCL for Windows
-Windows buildable version of NVIDIA's NCCL ("Nickel") v1.34 library (originally for Linux) for multi-GPU acceleration. Please see https://github.com/NVIDIA/nccl for the latest source files. Note, this version of NCCL is NOT the most current version of the library. 
+Windows buildable version of NVIDIA's NCCL ("Nickel") v1.3.4 library (originally for Linux) for multi-GPU acceleration. Please see https://github.com/NVIDIA/nccl for the latest source files. Note, this version of NCCL is NOT the most current version of the library. 
 <h3>Supported Development Environments:</h3>
 
 * Visual Studio 2026 (platform toolset v14.5) & CUDA Computing Toolkit v13.4 (current)  
