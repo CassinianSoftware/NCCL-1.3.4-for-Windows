@@ -1,7 +1,12 @@
 # NCCL for Windows
 Windows buildable version of NVIDIA's NCCL ("Nickel") v1.34 library (originally for Linux) for multi-GPU acceleration. Please see https://github.com/NVIDIA/nccl for the latest source files. Note, this version of NCCL is NOT the most current version of the library. 
 <h3>Supported Development Environments:</h3>
-* Visual Studio 2019 (platform toolset v14.2) & CUDA Computing Toolkit v13.4
+
+* Visual Studio 2026 (platform toolset v14.5) & CUDA Computing Toolkit v13.4 (current)  
+
+* Visual Studio 2019 (platform toolset v14.2) & CUDA Computing Toolkit v13.3 (previous)
+<h3>Target CUDA Architecture:</h3>
+Change this to match your hardware. This build supports Blackwell Ultra (CUDA 12.9 and later, consumer & workstation version of Blackwell): GeForce RTX 5090, RTX 5080, RTX 5070 Ti, RTX 5070, RTX 5060 Ti, RTX PRO 6000 Blackwell (GB202, GB203, GB205, GB206, GB207). For GeForce RTX cards, consider using compute_120a and sm_120a, which adds specialized accelerated features but is not forward compatible; for RTX 5090, RTX 5080, RTX 5070 Ti, RTX 5070, RTX 5060 Ti, and RTX PRO 6000.
 <h3>Test Results:</h3>
 This version of NCCL has been tested on a Dell Precision T7920 running Windows 11, with 2 NVIDIA GeForce RTX 5060 Ti 16GB GPU cards installed, using the following test apps: all_gather_test.exe, all_reduce_test.exe, broadcast_test.exe, reduce_scatter_test.exe, and reduce-test.exe. There is no guarantee this build of NCCL will function correctly for any particular purpose under Windows.
 <h4>reduce_test 67108864 2 (64MB data size, 2 GPUs) results:</h4>
