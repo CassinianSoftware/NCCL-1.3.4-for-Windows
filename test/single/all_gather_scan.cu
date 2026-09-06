@@ -32,11 +32,8 @@
 #include <string>
 #include <float.h>
 
-#include "nvtx3/nvToolsExt.h"
-
-#include "nccl.h"
-#include "test_utilities.h"
- //#include <nvToolsExt.h>
+#include "../../src/nccl.h"
+#include "../include/test_utilities.h"
 #include "nvtx3/nvToolsExt.h"
 
 void showUsage(const char* bin) {
@@ -219,7 +216,7 @@ int main(int argc, char* argv[]) {
 
     double mb = (double)(n*word * (gpus-1)) * 1.e-6;
     double algbw = mb / ms;
-    printf("%12lu %5.0le %10.3lf %6.2lf\n",
+    printf("%12zu %5.0le %10.3lf %6.2lf\n",
         n*word, max_error, ms, algbw);
   }
 

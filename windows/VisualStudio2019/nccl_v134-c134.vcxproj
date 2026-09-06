@@ -11,25 +11,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <CudaCompile Include="..\src\all_gather.cu" />
-    <CudaCompile Include="..\src\all_reduce.cu" />
-    <CudaCompile Include="..\src\broadcast.cu" />
-    <CudaCompile Include="..\src\core.cu" />
-    <CudaCompile Include="..\src\libwrap.cu" />
-    <CudaCompile Include="..\src\reduce.cu" />
-    <CudaCompile Include="..\src\reduce_scatter.cu" />
+    <CudaCompile Include="..\..\src\all_gather.cu" />
+    <CudaCompile Include="..\..\src\all_reduce.cu" />
+    <CudaCompile Include="..\..\src\broadcast.cu" />
+    <CudaCompile Include="..\..\src\core.cu" />
+    <CudaCompile Include="..\..\src\libwrap.cu" />
+    <CudaCompile Include="..\..\src\reduce.cu" />
+    <CudaCompile Include="..\..\src\reduce_scatter.cu" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\common_coll.h" />
-    <ClInclude Include="..\src\common_kernel.h" />
-    <ClInclude Include="..\src\copy_kernel.h" />
-    <ClInclude Include="..\src\core.h" />
-    <ClInclude Include="..\src\enqueue.h" />
-    <ClInclude Include="..\src\libwrap.h" />
-    <ClInclude Include="..\src\nccl.h" />
-    <ClInclude Include="..\src\primitives.h" />
-    <ClInclude Include="..\src\reduce_kernel.h" />
-    <ClInclude Include="..\test\include\test_utilities.h" />
+    <ClInclude Include="..\..\src\common_coll.h" />
+    <ClInclude Include="..\..\src\common_kernel.h" />
+    <ClInclude Include="..\..\src\copy_kernel.h" />
+    <ClInclude Include="..\..\src\core.h" />
+    <ClInclude Include="..\..\src\enqueue.h" />
+    <ClInclude Include="..\..\src\libwrap.h" />
+    <ClInclude Include="..\..\src\nccl.h" />
+    <ClInclude Include="..\..\src\primitives.h" />
+    <ClInclude Include="..\..\src\reduce_kernel.h" />
+    <ClInclude Include="..\..\test\include\test_utilities.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -46,19 +46,18 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v145</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v145</PlatformToolset>
-    <VCToolsVersion>14.51.36231</VCToolsVersion>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-    <Import Project="..\..\..\..\..\..\..\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4\extras\visual_studio_integration\MSBuildExtensions\CUDA 13.4.props" />
+    <Import Project="..\..\..\..\..\..\..\..\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4\extras\visual_studio_integration\MSBuildExtensions\CUDA 13.4.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -77,7 +76,6 @@
     <TargetName>nccl-x64_v134-c134</TargetName>
     <IntDir>$(Platform)\$(Configuration)\obj_v134-c134\</IntDir>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\libs\</OutDir>
-    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -125,26 +123,21 @@ copy "$(CUDA_PATH_V13_4)\bin\x64\cudart*.dll" "$(OutDir)"</Command>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
       <Defines>CUDA11_0,COMPILING_NCCL</Defines>
-      <CodeGeneration>compute_120,sm_120</CodeGeneration>
+      <CodeGeneration>compute_89,sm_89;compute_90,sm_90;compute_120,sm_120</CodeGeneration>
       <CudaRuntime>Shared</CudaRuntime>
       <FastMath>true</FastMath>
       <Optimization>O2</Optimization>
       <Runtime>MT</Runtime>
       <RuntimeChecks>Default</RuntimeChecks>
       <Include>$(SolutionDir);$(NVTOOLSEXT_PATH)include;$(SolutionDir)..\src;$(SolutionDir)..\test\include;%(Include)</Include>
-      <ExtensibleWholeProgramCompilation>true</ExtensibleWholeProgramCompilation>
-      <Warning>W1</Warning>
-      <AdditionalCompilerOptions>
-      </AdditionalCompilerOptions>
     </CudaCompile>
     <CudaLink>
       <Optimization>O2</Optimization>
-      <PerformDeviceLinkTimeOptimization>false</PerformDeviceLinkTimeOptimization>
-      <GPUDebugInfo>false</GPUDebugInfo>
+      <PerformDeviceLinkTimeOptimization>true</PerformDeviceLinkTimeOptimization>
     </CudaLink>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\..\..\..\..\..\..\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4\extras\visual_studio_integration\MSBuildExtensions\CUDA 13.4.targets" />
+    <Import Project="..\..\..\..\..\..\..\..\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4\extras\visual_studio_integration\MSBuildExtensions\CUDA 13.4.targets" />
   </ImportGroup>
 </Project>

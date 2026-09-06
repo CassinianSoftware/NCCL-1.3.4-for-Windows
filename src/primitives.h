@@ -11,7 +11,6 @@
 #include "copy_kernel.h" // for FuncPassA
 #include "reduce_kernel.h" // for reduction funcs
 
-
 /* Defines primitive operations: Copy, Reduce, DoubleCopy, and ReduceCopy.
  *
  * In order to reduce the reptetion of template arguments, the operations

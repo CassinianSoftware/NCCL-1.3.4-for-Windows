@@ -11,8 +11,9 @@
 #include <string>
 #include <vector>
 
-#include "nccl.h"
-#include "test_utilities.h"
+#include "../../src/nccl.h"
+#include "../include/test_utilities.h"
+#include "nvtx3/nvToolsExt.h"
 
 int errors = 0;
 double avg_bw = 0.0;

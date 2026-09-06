@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 18
-VisualStudioVersion = 18.10.12120.281 insiders
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.37530.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nccl_v134-c134", "nccl_v134-c134.vcxproj", "{B7C783ED-B18F-4E72-B297-38D0833E7B18}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "all_gather_test", "test\single\all_gather_test.vcxproj", "{6873B553-B8A0-4FC9-A311-0F2CEC42E27C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "all_gather_test", "..\test\single\VisualStudio2019\all_gather_test.vcxproj", "{6873B553-B8A0-4FC9-A311-0F2CEC42E27C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "all_reduce_test", "test\single\all_reduce_test.vcxproj", "{4A36BFC9-207C-4475-AE88-57F9D3D6486B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "all_reduce_test", "..\test\single\VisualStudio2019\all_reduce_test.vcxproj", "{4A36BFC9-207C-4475-AE88-57F9D3D6486B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "broadcast_test", "test\single\broadcast_test.vcxproj", "{D263029B-3B35-42D4-9A02-2D002AFB0B28}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "broadcast_test", "..\test\single\VisualStudio2019\broadcast_test.vcxproj", "{D263029B-3B35-42D4-9A02-2D002AFB0B28}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reduce_scatter_test", "test\single\reduce_scatter_test.vcxproj", "{D2ECD6EA-9616-4275-A4D8-BC1EC622B48C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reduce_scatter_test", "..\test\single\VisualStudio2019\reduce_scatter_test.vcxproj", "{D2ECD6EA-9616-4275-A4D8-BC1EC622B48C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reduce_test", "test\single\reduce_test.vcxproj", "{C219BFC8-7654-4F99-AA62-FA5CAE1CD424}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reduce_test", "..\test\single\VisualStudio2019\reduce_test.vcxproj", "{C219BFC8-7654-4F99-AA62-FA5CAE1CD424}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

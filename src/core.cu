@@ -241,7 +241,7 @@ static ncclResult_t closeGather(RankGather* gather, int ndev) {
   size_t bytes = offsetof(RankGather, ranks) + ndev*sizeof(RankEntry);
   ncclResult_t res = shmUnmap(gather, bytes);
   if (res != ncclSuccess) {
-    WARN("failed to unmap %ld bytes of gather", bytes);
+    WARN("failed to unmap %zu bytes of gather", bytes);
     return res;
   }
 
@@ -254,7 +254,7 @@ static ncclResult_t allocDevMem(ncclMem** ptr, size_t buffSize) {
   cudaError_t res = cudaMalloc((void**)ptr, size);
   if (res != cudaSuccess) {
     *ptr = NULL;
-    WARN("failed to allocate %lu byte device buffer", size);
+    WARN("failed to allocate %zu byte device buffer", size);
     return ncclCudaMallocFailed;
   }
   if (cudaMemset(*ptr, 0, size) != cudaSuccess) {
@@ -274,7 +274,7 @@ static ncclResult_t allocHostMem(ncclMem** ptr, size_t buffSize) {
   cudaError_t res = cudaMallocHost((void**)ptr, size);
   if (res != cudaSuccess) {
     *ptr = NULL;
-    WARN("failed to allocate %lu byte host buffer", size);
+    WARN("failed to allocate %zu byte host buffer", size);
     return ncclSystemError;
   }
   memset(*ptr, 0, size);
@@ -285,7 +285,7 @@ static ncclResult_t openHostMemShm(const char* shmname, ncclMem** ptr, size_t bu
   size_t size = offsetof(struct ncclMem, buff) + buffSize;
   ncclResult_t res = shmOpen(shmname, size, (void**)ptr);
   if (res != ncclSuccess) {
-    WARN("failed to allocate %lu byte shm buffer", size);
+    WARN("failed to allocate %zu byte shm buffer", size);
     *ptr = NULL;
     return res;
   }
@@ -665,7 +665,7 @@ static ncclResult_t commAlloc(ncclComm_t* comret, int ndev, const ncclUniqueId* 
     buffsize = DEFAULT_BUFFER_SIZE_BYTES;
   }
   comm->buffSize = buffsize;
-  INFO("rank %d using buffSize = %lu", rank, comm->buffSize);
+  INFO("rank %d using buffSize = %zu", rank, comm->buffSize);
 
 
   ncclResult_t res;

@@ -11,9 +11,8 @@
 #include <string>
 #include <vector>
 
-#include "nccl.h"
-#include "test_utilities.h"
-//#include <nvToolsExt.h>
+#include "../../src/nccl.h"
+#include "../include/test_utilities.h"
 #include "nvtx3/nvToolsExt.h"
 
 int csv = false;
