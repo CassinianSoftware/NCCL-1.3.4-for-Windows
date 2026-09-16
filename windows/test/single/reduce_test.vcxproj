@@ -175,7 +175,7 @@ copy "$(CUDA_PATH_V13_4)\bin\x64\cudart*.dll" "$(OutDir)"</Command>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
       <Include>$(NVTOOLSEXT_PATH)include;$(SolutionDir)..\src;$(SolutionDir)..\test\include;%(Include)</Include>
-      <CodeGeneration>compute_120,sm_120</CodeGeneration>
+      <CodeGeneration>compute_120a,sm_120a</CodeGeneration>
       <FastMath>true</FastMath>
       <Optimization>O2</Optimization>
       <Runtime>MT</Runtime>

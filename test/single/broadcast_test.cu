@@ -206,15 +206,15 @@ int main(int argc, char* argv[]) {
   printf("# %10s  %12s  %6s  %4s  %7s  %5s  %5s  %7s\n",
       "bytes", "N", "type", "root", "time", "algbw", "busbw", "delta");
 
-  RunTests<char>(N / sizeof(char), ncclChar, comms, dList);
-  RunTests<int>(N / sizeof(int), ncclInt, comms, dList);
+  RunTests<char>((int)(N / sizeof(char)), ncclChar, comms, dList);
+  RunTests<int>((int)(N / sizeof(int)), ncclInt, comms, dList);
 #ifdef CUDA_HAS_HALF
-  RunTests<half>(N / sizeof(half), ncclHalf, comms, dList);
+  RunTests<half>((int)(N / sizeof(half)), ncclHalf, comms, dList);
 #endif
-  RunTests<float>(N / sizeof(float), ncclFloat, comms, dList);
-  RunTests<double>(N / sizeof(double), ncclDouble, comms, dList);
-  RunTests<long long>(N / sizeof(long long), ncclInt64, comms, dList);
-  RunTests<unsigned long long>(N / sizeof(unsigned long long), ncclUint64, comms, dList);
+  RunTests<float>((int)(N / sizeof(float)), ncclFloat, comms, dList);
+  RunTests<double>((int)(N / sizeof(double)), ncclDouble, comms, dList);
+  RunTests<long long>((int)(N / sizeof(long long)), ncclInt64, comms, dList);
+  RunTests<unsigned long long>((int)(N / sizeof(unsigned long long)), ncclUint64, comms, dList);
 
   printf("\n");
 
@@ -236,11 +236,13 @@ int main(int argc, char* argv[]) {
 	  getchar();
 	  exit(EXIT_FAILURE);
   }
+/*
   else
   {
 	  printf("Success! press any key to continue.");
 	  getchar();
 	  exit(EXIT_SUCCESS);
   }
+*/
 }
 

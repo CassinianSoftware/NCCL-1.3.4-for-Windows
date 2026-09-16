@@ -301,11 +301,13 @@ int main(int argc, char* argv[]) {
 	  getchar();
 	  exit(EXIT_FAILURE);
   }
+/*
   else
   {
 	  printf("Success! press any key to continue.");
 	  getchar();
 	  exit(EXIT_SUCCESS);
   }
+*/
 }
 
