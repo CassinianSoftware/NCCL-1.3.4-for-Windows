@@ -1,7 +1,15 @@
 # NCCL for Windows
-Windows buildable version of NVIDIA's NCCL ("Nickel") v1.34 library (originally for Linux) for multi-GPU acceleration. Please see https://github.com/NVIDIA/nccl for the latest source files. Note, this version of NCCL is NOT the most current version of the library. 
+Windows buildable version of NVIDIA's NCCL ("Nickel") v1.3.4 library (originally for Linux) for multi-GPU acceleration. Please see https://github.com/NVIDIA/nccl for the latest source files. Note, this version of NCCL is NOT the most current version of the library. 
 <h3>Supported Development Environments:</h3>
-* Visual Studio 2019 (platform toolset v14.2) & CUDA Computing Toolkit v13.4
+
+* Visual Studio 2026 (platform toolset v14.5) & CUDA Computing Toolkit v13.4 (current)  
+
+* Visual Studio 2019 (platform toolset v14.2) & CUDA Computing Toolkit v13.3 (previous)
+<h3>Target CUDA Architecture:</h3>
+Change this to match your hardware. This build supports Blackwell Ultra (CUDA 12.9 and later, consumer & workstation version of Blackwell): GeForce RTX 5090, RTX 5080, RTX 5070 Ti, RTX 5070, RTX 5060 Ti, RTX PRO 6000 Blackwell (GB202, GB203, GB205, GB206, GB207). For GeForce RTX cards, consider using compute_120a and sm_120a, which adds specialized accelerated features but is not forward compatible; for RTX 5090, RTX 5080, RTX 5070 Ti, RTX 5070, RTX 5060 Ti, and RTX PRO 6000.  
+  
+<h4>For more information regarding NVIDIA GPU architectures and gencodes (compute_xx and sm_xx), see: https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards for a detailed discussion.</h4>  
+
 <h3>Test Results:</h3>
 This version of NCCL has been tested on a Dell Precision T7920 running Windows 11, with 2 NVIDIA GeForce RTX 5060 Ti 16GB GPU cards installed, using the following test apps: all_gather_test.exe, all_reduce_test.exe, broadcast_test.exe, reduce_scatter_test.exe, and reduce-test.exe. There is no guarantee this build of NCCL will function correctly for any particular purpose under Windows.
 <h4>reduce_test 67108864 2 (64MB data size, 2 GPUs) results:</h4>
@@ -73,4 +81,4 @@ Out of bounds values : 0 OK
 Avg bus bandwidth    : 5.77463  
 
 <h3>Final Note:</h3>
-This Windows build of NCCL v1.34 is intended for use with llama.cpp, to accelerate model performance when running a single model across multiple GPU cards using the "tensor parallel" option for the <b>--split-mode</b> command line argument. See https://github.com/ggml-org/llama.cpp/blob/master/docs/multi-gpu.md for further details. You must build llama.cpp to support NCCL, and make certain the environment variables NCCL_LIBRARY and NCCL_INCLUDE_DIR are set. If NCCL cannot be located at build time, you will see the message: "Warning: NCCL not found, performance for multiple CUDA GPUs will be suboptimal."
+This Windows build of NCCL v1.3.4 is intended for use with llama.cpp, to accelerate model performance when running a single model across multiple GPU cards using the "tensor parallel" option for the <b>--split-mode</b> command line argument. See https://github.com/ggml-org/llama.cpp/blob/master/docs/multi-gpu.md for further details. You must build llama.cpp to support NCCL, and make certain the environment variables NCCL_LIBRARY and NCCL_INCLUDE_DIR are set. If NCCL cannot be located at build time, you will see the message: "Warning: NCCL not found, performance for multiple CUDA GPUs will be suboptimal."
